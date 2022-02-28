@@ -18,6 +18,9 @@
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item>
        <widget class="QLineEdit" name="displayValueLineEdit">
         <property name="font">
          <font>
