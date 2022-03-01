@@ -1,4 +1,4 @@
-class Model:
+class MainWindowViewModel:
     def __init__(self) -> None:
         self.leftSideValue = ""
         self.rightSideValue = ""

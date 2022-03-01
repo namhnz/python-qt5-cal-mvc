@@ -3,17 +3,16 @@ from PyQt5.QtWidgets import QMainWindow
 
 import sys
 
-from View import View
-from Model import Model
+from MainWindow import Ui_MainWindow
 
 
-class Controller(QMainWindow, View):
-    def __init__(self, *args, **kwargs):
+class MainWindowLogic(QMainWindow, Ui_MainWindow):
+    def __init__(self, viewModel, *args, **kwargs):
         QMainWindow.__init__(self, *args, **kwargs)
 
         self.setupUi(self)
 
-        self.model = Model()
+        self.viewModel = viewModel
 
         self.numButtons = [self.num0Button, self.num1Button, self.num2Button, self.num3Button,
                            self.num4Button, self.num5Button, self.num6Button, self.num7Button, self.num8Button, self.num9Button]
@@ -49,38 +48,38 @@ class Controller(QMainWindow, View):
         self.actionExit.triggered.connect(lambda _: sys.exit())
 
     def AddNumberValuePressed(self, text):
-        self.model.AddNumberValue(text)
+        self.viewModel.AddNumberValue(text)
         self.ShowValues()
 
     def AddOperatorPressed(self, text):
-        self.model.AddOperator(text)
+        self.viewModel.AddOperator(text)
         self.ShowValues()
 
     def NegativeAndPositiveSwitchPressed(self):
-        self.model.NegativeAndPositiveSwitch()
+        self.viewModel.NegativeAndPositiveSwitch()
         self.ShowValues()
 
     def TypePercentagePressed(self):
-        self.model.TypePercentage()
+        self.viewModel.TypePercentage()
         self.ShowValues()
 
     def MakeFloatPressed(self):
-        self.model.MakeFloat()
+        self.viewModel.MakeFloat()
         self.ShowValues()
 
     def RemoveTypingLastCharPressed(self):
-        self.model.RemoveTypingLastCharactor()
+        self.viewModel.RemoveTypingLastCharactor()
         self.ShowValues()
 
     def ClearDisplayPressed(self):
         print("clear data")
-        self.model.ClearData()
+        self.viewModel.ClearData()
         self.ShowValues()
 
     def CalculatePressed(self):
-        self.model.Calculate()
+        self.viewModel.Calculate()
         self.ShowValues()
 
     def ShowValues(self):
-        self.previousValueLineEdit.setText(self.model.displayValues[0])
-        self.currentValueLineEdit.setText(self.model.displayValues[1])
+        self.previousValueLineEdit.setText(self.viewModel.displayValues[0])
+        self.currentValueLineEdit.setText(self.viewModel.displayValues[1])

@@ -3,12 +3,14 @@ from PyQt5.QtCore import QSize, Qt
 
 import sys
 
-from Controller import Controller
+from MainWindowLogic import MainWindowLogic;
+from MainWindowViewModel import MainWindowViewModel;
 
 
 def main():
     app = QApplication(sys.argv)
-    ui = Controller()
+    vm = MainWindowViewModel();
+    ui = MainWindowLogic(vm);
     # ui.showMaximized()
     ui.show()
     sys.exit(app.exec_())
