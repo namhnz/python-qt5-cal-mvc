@@ -1,14 +1,13 @@
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow
+from qtpy import QtWidgets
 
 import sys
 
 from MainWindow import Ui_MainWindow
 
 
-class MainWindowLogic(QMainWindow, Ui_MainWindow):
+class MainWindowLogic(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, viewModel, *args, **kwargs):
-        QMainWindow.__init__(self, *args, **kwargs)
+        QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
 
         self.setupUi(self)
 
